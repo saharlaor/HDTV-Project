@@ -14,4 +14,11 @@
           align-items: center;
   text-align: center;
 }
+
+.Item > img {
+  height: 500px;
+  width: 500px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 /*# sourceMappingURL=Item.css.map */
