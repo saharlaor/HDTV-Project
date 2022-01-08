@@ -12,7 +12,7 @@ async function parse() {
     const { data } = await axios.get(`${PROXY_URL}${API_URL}rss.php`, {
       params: {
         aff: 2,
-        count: 20,
+        count: 7,
         forum: 107,
         image: 2,
       },

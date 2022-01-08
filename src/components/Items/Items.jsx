@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 // Internal
 import parse from "../../api/mainRSSFeed";
+import Loader from "../Loader/Loader";
 import Item from "./Item/Item";
 import "./Items.css";
 
@@ -39,9 +40,11 @@ function Items() {
   };
 
   return items ? (
-    <div className="Items">{generateItemElements()}</div>
+    <div className="Items ready">{generateItemElements()}</div>
   ) : (
-    <div className="Items">Loading...</div>
+    <div className="Items loading">
+      <Loader />
+    </div>
   );
 }
 
