@@ -6,23 +6,14 @@ import reactReplace from "react-string-replace";
 import "./Item.css";
 
 // Constants
-const IMAGE_API_URL = "https://ws-na.amazon-adsystem.com/widgets/q";
-const PRODUCT_CODE_REGEX =
-  /((?<=https:\/\/www\.amazon\.com\/([a-zA-Z0-9]+\/)+)[a-zA-Z0-9]+(?=\?))/;
-const LINK_REGEX = /https?:\/\/www\.[\S]+\.[\S]+\/[\S]*/g;
-const SITE_REGEX = /www\.[^/\s]+\.[^/\s]+/;
+const LINK_REGEX = /https?:\/\/[^/\s]+\.[\S]+\.[\S]+\/[\S]*/g;
+const SITE_REGEX = /[^/\s]+\.[^/\s]+\.[^/\s]+/;
 
-function Item({ title, content }) {
-  const getImage = () => {
-    const productCode = content.match(PRODUCT_CODE_REGEX);
-    const imageURL = `${IMAGE_API_URL}?_encoding=UTF8&MarketPlace=US&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=SL500&ASIN=${productCode}`;
-    return imageURL;
-  };
-
+function Item({ title, content, image }) {
   const getLinkedContent = () => {
     const links = content.match(LINK_REGEX);
     const siteTuples = links.map((link) => [link, link.match(SITE_REGEX)[0]]);
-    const cont = reactReplace(content, /(?<=^|[^\n])\n(?=!\n)/g, (_, i) => (
+    const cont = reactReplace(content, /(?:^|[^\n])\n(?=!\n)/g, (_, i) => (
       <br key={i} />
     ));
     const newContent = siteTuples.reduce(
@@ -34,15 +25,14 @@ function Item({ title, content }) {
         )),
       cont
     );
-    return <div className="Item__content">{newContent}</div>;
-    // console.log(`temp`, <div>{temp}</div>);
+    return newContent;
   };
 
   return (
     <div className="Item">
-      <img src={getImage()} alt={title} />
+      <img src={image} alt={title} />
       <h3 className="Item__title">{title}</h3>
-      {getLinkedContent()}
+      <div className="Item__content">{getLinkedContent()}</div>
     </div>
   );
 }

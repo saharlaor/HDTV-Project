@@ -13,21 +13,28 @@ function Items() {
     (async () => {
       const tempItems = await fetchItems();
       setItems(
-        tempItems.map(({ guid, title, contentSnippet }) => {
-          return { id: guid, title: title, content: contentSnippet };
+        tempItems.map(({ guid, title, description, image }) => {
+          return { id: guid, title, description, image };
         })
       );
     })();
   }, []);
 
   const fetchItems = async () => {
-    const { items } = await parse();
-    return items;
+    const resultItems = await parse();
+    return resultItems;
   };
 
   const generateItemElements = () => {
-    return items.map(({ id, title, content }) => {
-      return <Item key={id} title={title} content={content} />;
+    return items.map(({ id, title, description, image }) => {
+      return (
+        <Item
+          key={id}
+          title={title}
+          content={description}
+          image={decodeURIComponent(image)}
+        />
+      );
     });
   };
 
