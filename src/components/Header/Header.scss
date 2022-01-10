@@ -1,0 +1,27 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  padding: 2rem;
+  background-color: #e5e5e5;
+  text-align: center;
+}
+#main-title {
+  margin: 0;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+
+@media screen and (max-width: 920px) {
+  #sub-title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #main-title {
+    font-size: calc(14vw - 20px);
+  }
+}
