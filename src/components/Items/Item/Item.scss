@@ -10,29 +10,48 @@
   max-height: $numLines * $lineHeight + unquote("em");
 }
 
+@function dp($_dp) {
+  @return (72 / 160) * $_dp + pt;
+}
+
 .Item {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  flex-grow: 0;
   text-align: center;
-  height: auto;
+  height: fit-content;
+  width: 25rem;
   padding: 2rem 1rem;
-  box-shadow: 0 0 5px 1px #bbb;
-  border-radius: 5px;
+  box-shadow: 0 3px 10px 3px #ddd;
+  border-radius: dp(2);
   background-color: #fff;
   & > img {
-    height: 30vmin;
-    width: 30vmin;
-    object-fit: contain;
-    max-width: calc(500px - 1.5rem);
-    max-height: calc(500px - 1.5rem);
+    height: auto;
+    width: 18rem;
+    object-fit: scale-down;
   }
   & > h3 {
     height: 2.7rem;
-    @include line-clamp(2);
+    @include line-clamp(6);
   }
   .Item__content {
     // margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .Item {
+    font-size: 3.4vw;
+    width: 85vw;
+    & > img {
+      // height: 60vw;
+      width: 60vw;
+    }
+    & > h3 {
+      height: 2.7rem;
+      @include line-clamp(6);
+    }
   }
 }

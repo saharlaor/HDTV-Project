@@ -1,5 +1,5 @@
 // External
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import reactReplace from "react-string-replace";
 
 // Internal
@@ -10,6 +10,15 @@ const LINK_REGEX = /https?:\/\/[^/\s]+\.[\S]+\.[\S]+\/[\S]*/g;
 const SITE_REGEX = /[^/\s]+\.[^/\s]+\.[^/\s]+/;
 
 function Item({ title, content, image }) {
+  const [spans, setSpans] = useState(null);
+  const itemRef = useRef(null);
+
+  useEffect(() => {
+    itemRef.current.children[0].addEventListener("load", () =>
+      setSpans(Math.ceil(itemRef.current.clientHeight / 4) + 8)
+    );
+  }, []);
+
   const getLinkedContent = () => {
     const links = content.match(LINK_REGEX);
     const siteTuples = links.map((link) => [link, link.match(SITE_REGEX)[0]]);
@@ -19,7 +28,7 @@ function Item({ title, content, image }) {
     const newContent = siteTuples.reduce(
       (tempContent, [link, site]) =>
         reactReplace(tempContent, link, (match, i) => (
-          <a key={site + i} href={match}>
+          <a key={match} href={match}>
             {site}
           </a>
         )),
@@ -29,7 +38,7 @@ function Item({ title, content, image }) {
   };
 
   return (
-    <div className="Item">
+    <div className="Item" ref={itemRef} style={{ gridRowEnd: `span ${spans}` }}>
       <img src={image} alt={title} />
       <h3 className="Item__title">{title}</h3>
       <hr />

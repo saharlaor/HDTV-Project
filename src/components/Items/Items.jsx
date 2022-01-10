@@ -44,7 +44,7 @@ function Items() {
   ) : (
     <div className="Items loading">
       <Loader />
-      <span className="loading__message">Fetching Recent Deals...</span>
+      <span className="loading__message">מחפש מבצעים חדשים...</span>
     </div>
   );
 }
