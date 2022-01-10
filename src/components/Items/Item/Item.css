@@ -6,19 +6,30 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  height: auto;
+  padding: 2rem 1rem;
+  -webkit-box-shadow: 0 0 10px 1px #bbb;
+          box-shadow: 0 0 10px 1px #bbb;
 }
 
 .Item > img {
-  height: 500px;
-  width: 500px;
+  height: 30vmin;
+  width: 30vmin;
   -o-object-fit: contain;
      object-fit: contain;
+  max-width: calc(500px - 1.5rem);
+  max-height: calc(500px - 1.5rem);
+}
+
+.Item > h3 {
+  height: 2.7rem;
+  text-overflow: ellipsis;
 }
 /*# sourceMappingURL=Item.css.map */

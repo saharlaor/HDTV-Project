@@ -32,6 +32,7 @@ function Item({ title, content, image }) {
     <div className="Item">
       <img src={image} alt={title} />
       <h3 className="Item__title">{title}</h3>
+      <hr />
       <div className="Item__content">{getLinkedContent()}</div>
     </div>
   );

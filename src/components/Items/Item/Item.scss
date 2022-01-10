@@ -1,12 +1,25 @@
 .Item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
+  height: auto;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 10px 1px #bbb;
   & > img {
-    height: 500px;
-    width: 500px;
+    height: 30vmin;
+    width: 30vmin;
     object-fit: contain;
+    max-width: calc(500px - 1.5rem);
+    max-height: calc(500px - 1.5rem);
+  }
+  & > h3 {
+    height: 2.7rem;
+    text-overflow: ellipsis;
+    // padding: 0 1rem;
+  }
+  .Item__content {
+    // margin: 1.5rem;
   }
 }
