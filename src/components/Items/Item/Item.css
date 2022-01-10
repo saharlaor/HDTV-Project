@@ -15,8 +15,10 @@
   text-align: center;
   height: auto;
   padding: 2rem 1rem;
-  -webkit-box-shadow: 0 0 10px 1px #bbb;
-          box-shadow: 0 0 10px 1px #bbb;
+  -webkit-box-shadow: 0 0 5px 1px #bbb;
+          box-shadow: 0 0 5px 1px #bbb;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
 .Item > img {
@@ -30,6 +32,14 @@
 
 .Item > h3 {
   height: 2.7rem;
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
   text-overflow: ellipsis;
+  display: block;
+  /* autoprefixer: off */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 2.824em;
 }
 /*# sourceMappingURL=Item.css.map */

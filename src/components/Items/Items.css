@@ -1,8 +1,8 @@
 .Items.ready {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
@@ -31,5 +31,19 @@
   font-size: 20px;
   z-index: 10;
   direction: ltr;
+}
+
+@media screen and (min-width: 1501px) {
+  .Items.ready {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1500px) {
+  .Items.ready {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
 }
 /*# sourceMappingURL=Items.css.map */

@@ -1,7 +1,7 @@
 .Items {
   &.ready {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: stretch;
     grid-gap: 6rem;
     gap: 3rem;
@@ -20,6 +20,22 @@
       font-size: 20px;
       z-index: 10;
       direction: ltr;
+    }
+  }
+}
+
+@media screen and (min-width: 1501px) {
+  .Items {
+    &.ready {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1500px) {
+  .Items {
+    &.ready {
+      grid-template-columns: 1fr 1fr;
     }
   }
 }
