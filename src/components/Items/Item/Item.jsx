@@ -14,9 +14,20 @@ function Item({ title, content, image }) {
   const itemRef = useRef(null);
 
   useEffect(() => {
+    const handleResize = () => {
+      setSpans(Math.ceil(itemRef.current.clientHeight / 4) + 8);
+    };
+
+    window.addEventListener("resize", handleResize);
+
     itemRef.current.children[0].addEventListener("load", () =>
       setSpans(Math.ceil(itemRef.current.clientHeight / 4) + 8)
     );
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const getLinkedContent = () => {
@@ -44,6 +55,7 @@ function Item({ title, content, image }) {
       <hr />
       <div className="Item__content">{getLinkedContent()}</div>
     </div>
+    // TODO: Star/like and share buttons bottom of item
   );
 }
 
