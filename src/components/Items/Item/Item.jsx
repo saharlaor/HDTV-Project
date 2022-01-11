@@ -27,6 +27,7 @@ const SITE_REGEX = /[^/\s]+\.[^/\s]+\.[^/\s]+/;
 function Item({ title, content, image }) {
   const [spans, setSpans] = useState(null);
   const [liked, setLiked] = useState(false);
+  const [share, setShare] = useState(false);
   const itemRef = useRef(null);
 
   useEffect(() => {
@@ -46,8 +47,16 @@ function Item({ title, content, image }) {
     };
   }, []);
 
+  useEffect(() => {
+    setSpans(Math.ceil(itemRef.current.clientHeight / 4) + 8);
+  }, [share]);
+
   const handleLikeClick = () => {
     setLiked((prev) => !prev);
+  };
+
+  const handleShareClick = () => {
+    setShare((prev) => !prev);
   };
 
   const getLinkedContent = () => {
@@ -78,36 +87,42 @@ function Item({ title, content, image }) {
         <button onClick={handleLikeClick}>
           {liked ? <AiFillStar /> : <AiOutlineStar />}
         </button>
-        <AiOutlineUpload />
+        <button onClick={handleShareClick}>
+          <AiOutlineUpload />
+        </button>
       </div>
-      <div className="Item__share">
-        <EmailShareButton url={window.location.href} resetButtonStyle={false}>
-          <EmailIcon />
-        </EmailShareButton>
-        <FacebookShareButton
-          url={window.location.href}
-          resetButtonStyle={false}>
-          <FacebookIcon />
-        </FacebookShareButton>
-        <LinkedinShareButton
-          url={window.location.href}
-          resetButtonStyle={false}>
-          <LinkedinIcon />
-        </LinkedinShareButton>
-        <TelegramShareButton
-          url={window.location.href}
-          resetButtonStyle={false}>
-          <TelegramIcon />
-        </TelegramShareButton>
-        <TwitterShareButton url={window.location.href} resetButtonStyle={false}>
-          <TwitterIcon />
-        </TwitterShareButton>
-        <WhatsappShareButton
-          url={window.location.href}
-          resetButtonStyle={false}>
-          <WhatsappIcon />
-        </WhatsappShareButton>
-      </div>
+      {share && (
+        <div className="Item__share">
+          <EmailShareButton url={window.location.href} resetButtonStyle={false}>
+            <EmailIcon />
+          </EmailShareButton>
+          <FacebookShareButton
+            url={window.location.href}
+            resetButtonStyle={false}>
+            <FacebookIcon />
+          </FacebookShareButton>
+          <LinkedinShareButton
+            url={window.location.href}
+            resetButtonStyle={false}>
+            <LinkedinIcon />
+          </LinkedinShareButton>
+          <TelegramShareButton
+            url={window.location.href}
+            resetButtonStyle={false}>
+            <TelegramIcon />
+          </TelegramShareButton>
+          <TwitterShareButton
+            url={window.location.href}
+            resetButtonStyle={false}>
+            <TwitterIcon />
+          </TwitterShareButton>
+          <WhatsappShareButton
+            url={window.location.href}
+            resetButtonStyle={false}>
+            <WhatsappIcon />
+          </WhatsappShareButton>
+        </div>
+      )}
     </div>
   );
 }
