@@ -8,7 +8,7 @@ import "./Header.css";
 function Header() {
   return (
     <div className="Header">
-      <h1 id="main-title">HDTVISRAEL</h1>
+      <h1 id="main-title">HDTV-ISRAEL</h1>
       <h2 id="sub-title">אתר הדילים של ישראל</h2>
       <div className="Header__buttons">
         <AiOutlineSearch />

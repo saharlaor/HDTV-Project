@@ -14,15 +14,22 @@
   left: 0;
   width: 100%;
   padding: 1vw;
-  background-color: rgba(229, 229, 229, 0.9);
+  background-color: rgba(216, 216, 216, 0.9);
+  -webkit-box-shadow: 0 1px 10px 0px #ccc;
+          box-shadow: 0 1px 10px 0px #ccc;
   text-align: center;
 }
 
 #main-title {
   margin: 0;
-  font-size: 5rem;
+  color: #357;
+  font-size: 3.5rem;
   font-weight: 400;
   letter-spacing: 5px;
+}
+
+#sub-title {
+  color: #667;
 }
 
 .Header__buttons {
@@ -46,7 +53,6 @@
 
 @media screen and (max-width: 920px) {
   #main-title {
-    font-size: 8vw;
     margin-bottom: 1vw;
   }
   #sub-title {
@@ -55,6 +61,9 @@
 }
 
 @media screen and (max-width: 720px) {
+  #main-title {
+    font-size: 8vw;
+  }
   .Header__buttons {
     padding: 0 7vw;
   }
