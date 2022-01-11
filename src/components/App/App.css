@@ -19,12 +19,6 @@
   background-color: #f6f6f6;
 }
 
-.App hr {
-  width: 85%;
-  opacity: 0.4;
-  margin: 1rem 0;
-}
-
 @media screen and (max-width: 720px) {
   .App {
     padding: 4.5vw;

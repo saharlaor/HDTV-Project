@@ -22,15 +22,19 @@ function Item({ title, content, image }) {
 
     window.addEventListener("resize", handleResize);
 
-    itemRef.current.children[0].addEventListener("load", () =>
-      setSpans(Math.ceil(itemRef.current.clientHeight / 4) + 8)
-    );
+    itemRef.current.children[1].addEventListener("load", () => {
+      setSpans(Math.ceil(itemRef.current.clientHeight / 4) + 8);
+    });
 
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleLikeClick = () => {
+    setLiked((prev) => !prev);
+  };
 
   const getLinkedContent = () => {
     const links = content.match(LINK_REGEX);
@@ -52,12 +56,14 @@ function Item({ title, content, image }) {
 
   return (
     <div className="Item" ref={itemRef} style={{ gridRowEnd: `span ${spans}` }}>
-      <img src={image} alt={title} />
       <h3 className="Item__title">{title}</h3>
+      <img src={image} alt={title} />
       <hr />
       <div className="Item__content">{getLinkedContent()}</div>
       <div className="Item__buttons">
-        {liked ? <AiFillStar /> : <AiOutlineStar />}
+        <button onClick={handleLikeClick}>
+          {liked ? <AiFillStar /> : <AiOutlineStar />}
+        </button>
         <AiOutlineUpload />
       </div>
     </div>

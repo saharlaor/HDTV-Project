@@ -31,12 +31,18 @@
     height: auto;
     width: 18rem;
     object-fit: scale-down;
-    margin-bottom: 2.5rem;
   }
   & > h3 {
     height: 2.7rem;
+    margin-bottom: 2.5rem;
     @include line-clamp(6);
   }
+  & > hr {
+    width: 85%;
+    opacity: 0.4;
+    margin: 1rem 0;
+  }
+
   .Item__content {
     // margin-top: 1rem;
   }
@@ -47,9 +53,14 @@
     width: 100%;
     margin-top: 1rem;
     padding: 0 2rem;
-    & > svg {
+    & > button {
+      background: none;
+      border: none;
+    }
+    & svg {
       height: 1.5rem;
       width: 1.5rem;
+      color: #47f;
     }
   }
 }
