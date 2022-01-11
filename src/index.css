@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-html {
-  min-height: 100vw;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
