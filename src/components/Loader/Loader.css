@@ -1,7 +1,9 @@
 .Loader {
   position: relative;
-  width: 350px;
   height: 350px;
+  max-height: calc(100vh - 180px);
+  width: 350px;
+  max-width: calc(100vh - 180px);
   border-radius: 50%;
   background: -webkit-gradient(linear, left top, left bottom, from(#f07e6e), color-stop(#84cdfa), to(#5ad1cd));
   background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
@@ -74,8 +76,8 @@
 
 @media screen and (max-width: 720px) {
   .Loader {
-    width: 50vw;
-    height: 50vw;
+    height: 50vmin;
+    width: 50vmin;
   }
   .Loader::after {
     top: 1.4vw;

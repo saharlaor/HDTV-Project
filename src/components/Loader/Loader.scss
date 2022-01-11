@@ -1,7 +1,14 @@
+// @mixin calc-max($base: 100vh, $margins: 3vw, $textHeight: 4rem) {
+//   max-height: calc(100vh - (3vw + (1.15 * 3.5rem)));
+//   max-width: $base - ;
+// }
+
 .Loader {
   position: relative;
-  width: 350px;
   height: 350px;
+  max-height: calc(100vh - 180px);
+  width: 350px;
+  max-width: calc(100vh - 180px);
   border-radius: 50%;
   background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
   animation: animate 1.2s linear infinite;
@@ -53,8 +60,8 @@
 
 @media screen and (max-width: 720px) {
   .Loader {
-    width: 50vw;
-    height: 50vw;
+    height: 50vmin;
+    width: 50vmin;
 
     &::after {
       top: 1.4vw;
