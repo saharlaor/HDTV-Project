@@ -22,6 +22,22 @@
   letter-spacing: 5px;
 }
 
+.Header__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0rem 3rem;
+}
+
+.Header__buttons > svg {
+  height: 2rem;
+  width: 2rem;
+}
+
 @media screen and (max-width: 920px) {
   #sub-title {
     display: none;
