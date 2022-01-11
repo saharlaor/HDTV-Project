@@ -31,6 +31,7 @@
     height: auto;
     width: 18rem;
     object-fit: scale-down;
+    margin-bottom: 2.5rem;
   }
   & > h3 {
     height: 2.7rem;
@@ -38,6 +39,18 @@
   }
   .Item__content {
     // margin-top: 1rem;
+  }
+
+  .Item__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0 2rem;
+    & > svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 }
 

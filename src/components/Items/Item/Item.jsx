@@ -1,6 +1,7 @@
 // External
 import React, { useEffect, useRef, useState } from "react";
 import reactReplace from "react-string-replace";
+import { AiOutlineStar, AiFillStar, AiOutlineUpload } from "react-icons/ai";
 
 // Internal
 import "./Item.css";
@@ -11,6 +12,7 @@ const SITE_REGEX = /[^/\s]+\.[^/\s]+\.[^/\s]+/;
 
 function Item({ title, content, image }) {
   const [spans, setSpans] = useState(null);
+  const [liked, setLiked] = useState(false);
   const itemRef = useRef(null);
 
   useEffect(() => {
@@ -54,6 +56,10 @@ function Item({ title, content, image }) {
       <h3 className="Item__title">{title}</h3>
       <hr />
       <div className="Item__content">{getLinkedContent()}</div>
+      <div className="Item__buttons">
+        {liked ? <AiFillStar /> : <AiOutlineStar />}
+        <AiOutlineUpload />
+      </div>
     </div>
     // TODO: Star/like and share buttons bottom of item
   );
