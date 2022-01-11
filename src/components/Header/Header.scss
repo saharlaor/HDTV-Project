@@ -28,13 +28,26 @@
 }
 
 @media screen and (max-width: 920px) {
+  .Header {
+    margin: 1.7vw;
+    margin-bottom: 5vw;
+    padding: 3.5vw;
+  }
+  #main-title {
+    font-size: calc(10vw - 20px);
+    margin-bottom: 1vw;
+  }
   #sub-title {
     display: none;
   }
 }
 
 @media screen and (max-width: 720px) {
-  #main-title {
-    font-size: calc(14vw - 20px);
+  .Header__buttons {
+    padding: 0 7vw;
+    & > svg {
+      height: 4.5vw;
+      width: 4.5vw;
+    }
   }
 }
