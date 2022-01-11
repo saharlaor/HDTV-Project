@@ -77,6 +77,31 @@
   color: #47f;
 }
 
+.Item .Item__share {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (2rem)[3];
+      grid-template-columns: repeat(3, 2rem);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 0.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.Item .Item__share > button {
+  height: 2rem;
+  width: 2rem;
+  background: none;
+  border: none;
+}
+
+.Item .Item__share > button > svg {
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (max-width: 470px) {
   .Item {
     font-size: 3.4vw;

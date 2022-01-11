@@ -2,6 +2,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import reactReplace from "react-string-replace";
 import { AiOutlineStar, AiFillStar, AiOutlineUpload } from "react-icons/ai";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailIcon,
+  FacebookIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
 
 // Internal
 import "./Item.css";
@@ -66,8 +80,35 @@ function Item({ title, content, image }) {
         </button>
         <AiOutlineUpload />
       </div>
+      <div className="Item__share">
+        <EmailShareButton url={window.location.href} resetButtonStyle={false}>
+          <EmailIcon />
+        </EmailShareButton>
+        <FacebookShareButton
+          url={window.location.href}
+          resetButtonStyle={false}>
+          <FacebookIcon />
+        </FacebookShareButton>
+        <LinkedinShareButton
+          url={window.location.href}
+          resetButtonStyle={false}>
+          <LinkedinIcon />
+        </LinkedinShareButton>
+        <TelegramShareButton
+          url={window.location.href}
+          resetButtonStyle={false}>
+          <TelegramIcon />
+        </TelegramShareButton>
+        <TwitterShareButton url={window.location.href} resetButtonStyle={false}>
+          <TwitterIcon />
+        </TwitterShareButton>
+        <WhatsappShareButton
+          url={window.location.href}
+          resetButtonStyle={false}>
+          <WhatsappIcon />
+        </WhatsappShareButton>
+      </div>
     </div>
-    // TODO: Star/like and share buttons bottom of item
   );
 }
 

@@ -63,6 +63,25 @@
       color: #47f;
     }
   }
+
+  .Item__share {
+    display: grid;
+    grid-template-columns: repeat(3, 2rem);
+    justify-content: center;
+    grid-gap: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+    & > button {
+      height: 2rem;
+      width: 2rem;
+      background: none;
+      border: none;
+      & > svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 470px) {
