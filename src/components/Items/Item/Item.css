@@ -122,5 +122,8 @@
     -webkit-box-orient: vertical;
     max-height: 8.472em;
   }
+  .Item > .Item__buttons {
+    padding: 0 calc(2vw * 16 / 4.7);
+  }
 }
 /*# sourceMappingURL=Item.css.map */

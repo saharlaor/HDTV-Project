@@ -96,5 +96,8 @@
       height: 2.7rem;
       @include line-clamp(6);
     }
+    & > .Item__buttons {
+      padding: 0 calc(2vw * 16 / 4.7);
+    }
   }
 }

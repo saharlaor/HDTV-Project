@@ -6,6 +6,7 @@
     gap: 0 3rem;
     width: fit-content;
     margin: auto;
+    margin-top: 10rem;
   }
   &.loading {
     display: flex;
@@ -52,6 +53,7 @@
   .Items {
     &.ready {
       grid-template-columns: 1fr;
+      margin-top: calc(15vw - 0.5rem);
     }
   }
 }
