@@ -30,13 +30,6 @@ async function parse() {
 
     // Generate array with relevant data
     const itemArray = item.map(({ guid, title, description, image }) => {
-      console.log(
-        `guid, title, description, image`,
-        guid,
-        title,
-        description,
-        image
-      );
       return {
         guid: guid && guid._text,
         title: title && title._text,
